@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Balises Open Graph pour WhatsApp -->
+    <meta property="og:title" content="Découvrez cette vidéo exclusive sur YouTube">
+    <meta property="og:description" content="Une présentation fascinante que vous devez absolument voir">
+    <meta property="og:image" content="https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg">
+    <meta property="og:url" content="https://votre-site.netlify.app">
+    <meta property="og:type" content="video.other">
+
+    <title>Redirection vers YouTube</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .preview-header {
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-header img {
+            width: 40px;
+            margin-right: 15px;
+        }
+
+        .preview-image {
+            width: 100%;
+            height: 280px;
+            background-color: #0088ff;
+            background-image: url('https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: rgba(255, 0, 0, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            background-color: rgba(255, 0, 0, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-button::after {
+            content: '';
+            border-style: solid;
+            border-width: 15px 0 15px 26.0px;
+            border-color: transparent transparent transparent white;
+            margin-left: 5px;
+        }
+
+        .image-label {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 15px;
+            width: 100%;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .content {
+            padding: 25px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .countdown {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 20px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 75, 43, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 75, 43, 0.6);
+        }
+
+        .instructions {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .instructions h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .instructions ol {
+            text-align: left;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button img {
+            width: 24px;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .preview-image {
+                height: 220px;
+            }
+
+            .play-button {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="preview-header">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNMTg2LjM2IDQzMi42NGw0MC4yNC0xNy41MkMyNDAgNDI0IDI1NiA0MjQgMjU2IDQyNGMwIDY0LTY0IDEyOC0xMjggMTI4YTI1Ni4zMiAyNTYuMzIgMCAwMS0xMjgtMzJjLTY0IDY0LTY0IDEyOC02NCAxMjggMCA2NCA2NCA2NCA2NCA2NCA2NCAwIDEyOC02NCAxMjgtMTI4YTUxMiA1MTIgMCAwMDMyLTEyOGMwLTMyLTE2LTQ4LTE2LTQ4eiIvPjxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik00MjUuNiA4Ni40YTI1NiAyNTYgMCAwMC0zNTYgMzU2Yy0xNi0xNi00OC0zMi00OC0zMnMtMTYtMTYgMC00OCAxNi0zMiAzMi0zMiAzMi0xNiA0OC0xNiA0OC0xNiA0OCAwIDMyIDMyIDMyIDMyYzAgMTYgMTYgMTYgMTYgMTZhMjU2IDI1NiAwIDAwMzU2LTM1NnoiLz48L3N2Zz4=" alt="YouTube Icon">
+        <h1>Vidéo YouTube Exclusive</h1>
+    </div>
+
+    <div class="preview-image">
+        <div class="play-button" id="playButton"></div>
+        <div class="image-label">Aperçu de la vidéo - Cliquez pour lire</div>
+    </div>
+
+    <div class="content">
+        <h1>Redirection vers YouTube</h1>
+        <p>Vous serez redirigé automatiquement vers une vidéo YouTube dans <span id="countdown">5</span> secondes.</p>
+
+        <div class="countdown" id="countdownVisual">5</div>
+
+        <button class="btn" id="redirectButton">Voir la vidéo maintenant</button>
+
+        <p style="font-size: 14px; margin-top: 20px;">Partagez ce lien sur WhatsApp pour voir l'aperçu</p>
+
+        <a href="#" class="whatsapp-button" id="whatsappShare">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjZmZmZmZmIiBkPSJNNDE0IDk4Yy0xMDYtMTA2LTI3OC0xMDYtMzg0IDAtMTA2IDEwNi0xMDYgMjc4IDAgMzg0IDM4LjggMzguOCA4NC40IDY2IDEzMiA3OGwyMCAxMjIgMTIyLTIwYzEyIDQ3LjIgMzkuMiA5My4yIDc4IDEzMiAxMDYgMTA2IDI3OCAxMDYgMzg0IDAgMTA2LTEwNiAxMDYtMjc4IDAtMzg0em0tMjI0LTE4YzAtMTcgMTQtMzEgMzEtMzFoNjZjMTcgMCAzMSAxNCAzMSAzMXMtMTQgMzEtMzEgMzFoLTY2Yy0xNyAwLTMxLTE0LTMxLTMxem0xMjggMTkyYy0xNyAwLTMxLTE0LTMxLTMxdi05NmMwLTE3IDE0LTMxIDMxLTMxczMxIDE0IDMxIDMxdjk2YzAgMTctMTQgMzEtMzEgMzF6bTY0LTY0YzAtMTcgMTQtMzEgMzEtMzFoMzJjMTcgMCAzMSAxNCAzMSAzMXMtMTQgMzEtMzEgMzFsLTMyIDBjLTE3IDAtMzEtMTQtMzEtMzF6bS0zMi02NGMwLTE3IDE0LTMxIDMxLTMxaDY0YzE3IDAgMzEgMTQgMzEgMzFzLTE0IDMxLTMxIDMxaC02NGMtMTcgMC0zMS0xNC0zMS0zMXoiLz48L3N2Zz4=" alt="WhatsApp Icon">
+            Partager sur WhatsApp
+        </a>
+    </div>
+</div>
+
+<div class="instructions">
+    <h2>Comment utiliser cette page :</h2>
+    <ol>
+        <li>Déployez cette page sur Netlify (obtenez une URL publique)</li>
+        <li>Partagez l'URL Netlify sur WhatsApp</li>
+        <li>WhatsApp affichera l'aperçu avec l'image et la description</li>
+        <li>Quand on clique sur le lien, on arrive sur cette page qui redirige vers YouTube</li>
+    </ol>
+</div>
+
+<script>
+    // Configuration
+    const redirectUrl = "https://www.youtube.com";
+    const countdownStart = 5;
+
+    // Éléments du DOM
+    const countdownElement = document.getElementById('countdown');
+    const countdownVisual = document.getElementById('countdownVisual');
+    const redirectButton = document.getElementById('redirectButton');
+    const playButton = document.getElementById('playButton');
+    const whatsappShare = document.getElementById('whatsappShare');
+
+
+
+    // Démarrage du compte à rebours
+    setTimeout(updateCountdown, 1000);
+
+    // Événements de clic
+    redirectButton.addEventListener('click', redirectToYouTube);
+    playButton.addEventListener('click', redirectToYouTube);
+
+    // Configuration du partage WhatsApp
+    const pageUrl = window.location.href;
+    const shareText = "Découvrez cette vidéo exclusive sur YouTube!";
+    whatsappShare.href = `https://wa.me/?text=${encodeURIComponent(shareText + " " + pageUrl)}`;
+</script>
+</body>
+</html>
